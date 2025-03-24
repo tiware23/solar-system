@@ -81,6 +81,9 @@ jobs:
       needs: [unit-testing, code-coverage]
       runs-on: ubuntu-latest
       steps:
+        - name: Checkout App Repository
+          uses: actions/checkout@v4
+          
         - name: Checkout Repo
           uses: docker/login-action@v3
           with:
