@@ -163,7 +163,7 @@ jobs:
           id: install
         - name: Fetch Kubernetes cluster Details
           run: |
-            kubectl version --short
+            kubectl version
             echo -------------------------------
             kubectl get nodes
 
