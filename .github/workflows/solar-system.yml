@@ -156,11 +156,19 @@ jobs:
       steps:
         - name: Checkout App Repository
           uses: actions/checkout@v4
+        
+        - name: Set K8s Context
+          uses: azure/k8s-set-context@v4
+          with:
+            method: kubeconfig
+            kubeconfig: ${{ secrets.KUBECONFIG }}
+
         - name: Install kubectl CLI
           uses: azure/setup-kubectl@v4
           with:
             version: latest
           id: install
+        
         - name: Fetch Kubernetes cluster Details
           run: |
             kubectl version
